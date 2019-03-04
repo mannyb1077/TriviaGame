@@ -1,0 +1,48 @@
+body 
+{	
+  background-image: url("../images/questions.png");
+  background-repeat: no-repeat;
+  margin-left: 50px;
+  max-width: 960px;
+  margin: 0 auto;
+
+}
+
+.container
+{
+    margin-top: 0;
+    width: 960px;
+    height: 900px;
+    background-color: rgb(16, 218, 245);
+    align-content: center;
+}
+
+#title
+{
+  background: white;
+  text-align: center;
+  color: teal;
+  height: 50px;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+footer
+{
+  position: fixed;
+  width: 960px;
+  height: 50px;
+  background: white;
+  color: teal;
+  margin-left: 0px;
+  max-width: 960px;
+  bottom: 0;
+  margin-top: 80px;
+  
+}
+.footerDiv
+{
+    text-align: center;
+    padding: 15px;
+
+}
