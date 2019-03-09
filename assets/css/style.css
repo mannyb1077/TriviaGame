@@ -13,7 +13,7 @@ body
     margin-top: 0;
     width: 960px;
     height: 900px;
-    background-color: rgb(16, 218, 245);
+    background-color: rgb(16, 218, 245); */
     align-content: center;
 }
 
@@ -46,3 +46,51 @@ footer
     padding: 15px;
 
 }
+.Trivia
+{
+  text-align: center;
+}
+
+#button-question
+{
+  width: 600px;
+  height: 60px;
+  text-align: center;
+  margin-bottom: 35px;
+  background-color: rgb(16, 218, 245);
+ 
+  font-size: 50px;
+  color:red;
+  
+
+}
+.buttonQuestion
+{
+  border: 15px;
+  border-color: red;
+  border: black;
+}
+  
+.buttonAnswers
+{
+  width: 600px;
+  height: 60px;
+  margin-bottom: 0;
+  padding: 0;
+  border: none;
+  background-color: rgb(16, 218, 245);
+  color: yellow;
+  font-size: 35px;
+  
+}
+#button-timer
+{
+  width: 600px;
+  height: 60px;
+  text-align: center;
+  margin-bottom: 10px;
+  background-color: rgb(16, 218, 245);
+  border: none;
+  font-size: 55px;
+}
+
