@@ -2,36 +2,47 @@
 var timer = false;
 var intervalID;
 var time = 5;
+var enabled = 0;
+
 var questionObject =
 {
      question1:
       {
         q1: "Question1",
         a1: "Answer1",
+        enabled: false,
+        asked: 0,
         
       },
       question2:
       {
         q2: "Question2",
         a2: "Answer2",
-        
+        enabled: false,
+        asked: 0,
       },
       question3:
       {
         q3: "Question3",
         a3: "Answer3",
+        enabled: false,
+        asked: 0,
         
       },
       question4:
       {
         q4: "Question4",
         a4: "Answer4",
+        enabled: false,
+        asked: 0,
         
       },
       question5:
       {
-        q5: "Question15",
+        q5: "Question5",
         a5: "Answer5",
+        enabled: false,
+        asked: 0,
         
       },
     //   question2: 
@@ -55,6 +66,18 @@ var allQuestions = [];
 
 //TEST
 
+
+
+
+function triviaQuestions(question, answer, enabled, asked) 
+{
+    this.question = question;
+    this.answer = answer;
+    this.enabled = enabled;
+    this.asked = asked;
+}
+
+
 $("#button-clear").click(function () 
 {
     var questionButton = $('<button>Test</button>').click(function () 
@@ -71,12 +94,23 @@ $("#button-clear").click(function ()
 
 $("#button-2").click(function () 
 {
-    startTimer();
+    console.log(questionObject.question1.q1);
+    console.log(questionObject.question1.a1);
+    console.log(questionObject.question1.enabled);
+    console.log(questionObject.question1.asked);
+    questionObject.question1.asked++
+    questionObject.question1.enabled = true;
+
 });
 
 $("#button-3").click(function () 
 {
-    stopTimer();
+    console.log(questionObject.question2.q2);
+    console.log(questionObject.question2.a2);
+    console.log(questionObject.question2.enabled);
+    console.log(questionObject.question2.asked);
+    questionObject.question2.asked++
+    questionObject.question2.enabled = true;
 });
 
 
@@ -176,24 +210,24 @@ function loadNewQuestion()
 function loadAnswers()
 {
     
-    var answer1 =Math.floor(Math.random()* answerObject.length);
-    var answer2 =Math.floor(Math.random()* answerObject.length);
-    var answer3 =Math.floor(Math.random()* answerObject.length);
-    var answer4 =Math.floor(Math.random()* answerObject.length);
-    var answer5 =Math.floor(Math.random()* answerObject.length);
+    // var answer1 =Math.floor(Math.random()* answerObject.length);
+    // var answer2 =Math.floor(Math.random()* answerObject.length);
+    // var answer3 =Math.floor(Math.random()* answerObject.length);
+    // var answer4 =Math.floor(Math.random()* answerObject.length);
+    // var answer5 =Math.floor(Math.random()* answerObject.length);
     
-    randomAnswer1 =answerObject[answer1];
-    randomAnswer2 =answerObject[answer2];
-    randomAnswer3 =answerObject[answer3];
-    randomAnswer4 =answerObject[answer4];
-    randomAnswer5 =answerObject[answer5];
+    // randomAnswer1 =answerObject[answer1];
+    // randomAnswer2 =answerObject[answer2];
+    // randomAnswer3 =answerObject[answer3];
+    // randomAnswer4 =answerObject[answer4];
+    // randomAnswer5 =answerObject[answer5];
     
 
-    $("#button-answer1").text(randomAnswer1);
-    $("#button-answer2").text(randomAnswer2);
-    $("#button-answer3").text(randomAnswer3);
-    $("#button-answer4").text(randomAnswer4);
-    $("#button-answer5").text(randomAnswer5);
+    // $("#button-answer1").text(randomAnswer1);
+    // $("#button-answer2").text(randomAnswer2);
+    // $("#button-answer3").text(randomAnswer3);
+    // $("#button-answer4").text(randomAnswer4);
+    // $("#button-answer5").text(randomAnswer5);
 }
 
 function questionAnsweredCorrectly()
