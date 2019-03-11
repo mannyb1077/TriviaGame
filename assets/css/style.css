@@ -1,3 +1,18 @@
+.main-button-container
+{
+  max-width: 450px;
+  margin-left: auto;
+
+
+}
+
+.answer:hover
+{
+  background: orange;
+}
+
+
+
 body 
 {	
   background-image: url("../images/questions.png");
@@ -5,6 +20,7 @@ body
   margin-left: 50px;
   max-width: 960px;
   margin: 0 auto;
+  align-content: center;
 
 }
 
@@ -13,8 +29,9 @@ body
     margin-top: 0;
     width: 960px;
     height: 900px;
-    background-color: rgb(16, 218, 245); */
+    background-color: rgb(16, 218, 245);
     align-content: center;
+    
 }
 
 #title
@@ -54,33 +71,36 @@ footer
 #button-question
 {
   width: 600px;
-  height: 60px;
+  height: 40px;
   text-align: center;
-  margin-bottom: 35px;
+  margin-bottom: 30px;
   background-color: rgb(16, 218, 245);
- 
-  font-size: 50px;
+  font-size: 30px;
   color:red;
   
 
 }
-.buttonQuestion
+
+#button-start
 {
   border: 15px;
-  border-color: red;
-  border: black;
+  height: 50px;
+  width: 200px;
+  text-align: center;
+  color: green;
+
 }
   
-.buttonAnswers
+.answers
 {
   width: 600px;
-  height: 60px;
+  height: 40px;
   margin-bottom: 0;
   padding: 0;
   border: none;
   background-color: rgb(16, 218, 245);
   color: yellow;
-  font-size: 35px;
+  font-size: 15px;
   
 }
 #button-timer
