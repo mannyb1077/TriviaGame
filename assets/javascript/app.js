@@ -1,6 +1,7 @@
 var start;
 
 var triviaHTML;
+var answersHTML;
 
 var counter = 30;
 
@@ -38,16 +39,16 @@ var answers = [
     ["Hewlett-Packard","Xerox","Intel","IBM"]];
  
 var correctAnswers = [ 
-    "B. Richard Nixon",
-    "C. The Phillipines", 
-    "B. Fossil Fuels", 
-    "C. Stop a wedding", 
-    "D. In a cave", 
-    "A. Hagia Sophia", 
-    "B. Steve McQueen", 
-    "D. I am...I Said",
-    "B. Suing them",
-    "B. Xerox"];
+    "b. Richard Nixon",
+    "c. The Phillipines", 
+    "b. Fossil Fuels", 
+    "c. Stop a wedding", 
+    "d. In a cave", 
+    "a. Hagia Sophia", 
+    "b. Steve McQueen", 
+    "d. I am...I Said",
+    "b. Suing them",
+    "b. Xerox"];
 
 var questionCounter = 0;
 var selectedAnswer;
@@ -75,7 +76,6 @@ $(document).ready(function()
         
         $('.jumbotron').hide(); 
         loadQuestions();
-    
         timerWrapper();
     
     }); 
@@ -96,14 +96,12 @@ $(document).ready(function()
             loadLoss();
         }
 
-        console.log(selectedAnswer);
-        console.log(correctAnswers[questionCounter]);
     }); 
     
-    $("body").on("click", ".reset-button", function(event)
+    $("body").on("click", ".restart-button", function(event)
     {
-        // clickSound.play();
-        resetGame();
+        
+        restartGame();
     }); 
     
     
@@ -140,14 +138,22 @@ $(document).ready(function()
 
     function loadQuestions() 
     {
-        triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>30</span></p><p class='text-center'>" + questions[questionCounter] + "</p><p class='first-answer answer'>A. " + answers[questionCounter][0] + "</p><p class='answer'>B. "+answers[questionCounter][1]+"</p><p class='answer'>C. "+answers[questionCounter][2]+"</p><p class='answer'>D. "+answers[questionCounter][3]+"</p>";
-
+        
+        triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>30</span></p><p class='text-center'>" + questions[questionCounter] + "</p><p class='first-answer answer'>a. " + answers [questionCounter][0] + "</p><p class='answer'>b. "+answers[questionCounter][1]+"</p><p class='answer'>c. "+answers[questionCounter][2]+"</p><p class='answer'>d. "+answers[questionCounter][3]+"</p>";
+        //loadAnswers();
         $("#mainArea").html(triviaHTML);
+        
     }; 
+
+    // function loadAnswers()
+    // {
+    //     triviaHTML = "</p><p class='first-answer answer'>A. " + answers[questionCounter][0] + "</p><p class='answer'>B. "+answers[questionCounter][1]+"</p><p class='answer'>C. "+answers[questionCounter][2]+"</p><p class='answer'>D. "+answers[questionCounter][3]+"</p>";
+    //     // $("#mainArea").html(triviaHTML);
+    // }
     
     function wait() 
     {
-        if (questionCounter < 10)
+        if (questionCounter <= 9) 
         {
             questionCounter++
             loadQuestions();
@@ -157,19 +163,11 @@ $(document).ready(function()
         }
         else
         {
+            alert("This is working");
             finalScreen();
         }
-        console.log(questionCounter);
+        console.log("questionCounter = " + questionCounter);
 
-    //     questionCounter < 10 ?
-
-    //     (questionCounter++,
-    //     generateQuestions(),
-    //     counter = 30,
-    //     timerWrapper() ):
-        
-    //    (finalScreen())
-    //    console.log(questionCounter);
     }; 
     
     function timerWrapper() 
@@ -193,11 +191,12 @@ $(document).ready(function()
     
     function finalScreen() 
     {
-        triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>All done, here's how you did!" + "</p>" + "<p class='summary-correct'>Correct Answers: " + wins + "</p>" + "<p>Wrong Answers: " + losses + "</p>" + "<p>Unanswered: " + noResponse + "</p>" + "<p class='text-center reset-button-container'><a class='btn btn-warning btn-md btn-block reset-button' href='#' role='button'>Reset The Quiz!</a></p>";
+        triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Game Over! Results: " + "</p>" + "<p class='summary-correct'>Correct Answers: " + wins + "</p>" + "<p>Wrong Answers: " + losses + "</p>" + "<p>Not Answered: " + noResponse + "</p>" + "<p class='text-center restart-button-container'><a class='btn btn-warning btn-md btn-block restart-button' href='#' role='button'>Restart Game!</a></p>";
+
         $("#mainArea").html(triviaHTML);
     }
     
-    function resetGame() 
+    function restartGame() 
     {
         questionCounter = 0;
         wins = 0;
@@ -206,6 +205,7 @@ $(document).ready(function()
         counter = 30;
         loadQuestions();
         timerWrapper();
+        //loadAnswers();
     }
     
    

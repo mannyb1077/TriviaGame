@@ -6,12 +6,25 @@
 
 }
 
+.jumbotron
+{
+  text-align: center;
+  color: teal;
+}
+
+.start-button
+{
+  margin-left: -235px;
+  margin-top: 20px;
+  height: 50px;
+  border-radius: 150px;
+  text-align: center;
+  font-size: 25px;
+}
 .answer:hover
 {
   background: orange;
 }
-
-
 
 body 
 {	
@@ -32,16 +45,12 @@ body
     background-color: rgb(16, 218, 245);
     align-content: center;
     
+    
 }
 
-#title
+img
 {
-  background: white;
-  text-align: center;
-  color: teal;
-  height: 50px;
-  padding: 10px;
-  margin-bottom: 5px;
+  border-radius: 50px;
 }
 
 footer
@@ -57,6 +66,7 @@ footer
   margin-top: 80px;
   
 }
+
 .footerDiv
 {
     text-align: center;
