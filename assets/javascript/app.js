@@ -72,7 +72,7 @@ $(document).ready(function()
 
     $("#mainArea").on("click", ".start-button", function(event)
     {
-    //    event.preventDefault();  // added line to test issue on GitHub Viewer
+    
         
         $('.jumbotron').hide(); 
         loadQuestions();
@@ -110,7 +110,7 @@ $(document).ready(function()
     function timeout() 
     {
         noResponse++;
-        triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>You ran out of time!  The correct answer was: " + correctAnswers[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='/Users/MannyBarboza/Developer/uubc/sandbox/Homework/Homework5/TriviaGame/assets/images/timeout.gif'>";
+        triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>You ran out of time!  The correct answer was: " + correctAnswers[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='assets/images/timeout.gif'>";
         $("#mainArea").html(triviaHTML);
         setTimeout(wait, 5000); 
     }
@@ -119,7 +119,7 @@ $(document).ready(function()
     {
         wins++;
         
-        triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Correct! The answer is: " + correctAnswers[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='/Users/MannyBarboza/Developer/uubc/sandbox/Homework/Homework5/TriviaGame/assets/images/correctanswer.gif'>";
+        triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Correct! The answer is: " + correctAnswers[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='assets/images/correctanswer.gif'>";
 
         $("#mainArea").html(triviaHTML);
         
@@ -128,6 +128,8 @@ $(document).ready(function()
     
     function loadLoss() 
     {
+
+    
         losses++;
         triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Wrong! The correct answer is: "+ correctAnswers[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='/Users/MannyBarboza/Developer/uubc/sandbox/Homework/Homework5/TriviaGame/assets/images/wronganswer.gif'>";
         $("#mainArea").html(triviaHTML);
