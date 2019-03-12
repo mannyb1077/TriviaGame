@@ -146,7 +146,7 @@ $(document).ready(function()
         triviaHTML = //"<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + 
         "<p class='text-center wrong-p'>Wrong!" + 
         "<p class='text-center variable-p'>The correct answer is: " + correctAnswers[questionCounter] + "</p>" +
-        "<img class='center-block img-wrong' src='/Users/MannyBarboza/Developer/uubc/sandbox/Homework/Homework5/TriviaGame/assets/images/wronganswer.gif'>";
+        "<img class='center-block img-wrong' src='assets/images/wronganswer.gif'>";
 
         $("#mainArea").html(triviaHTML);
 
