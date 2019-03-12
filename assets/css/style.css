@@ -2,8 +2,6 @@
 {
   max-width: 450px;
   margin-left: auto;
-
-
 }
 
 .jumbotron
@@ -21,12 +19,24 @@
   text-align: center;
   font-size: 25px;
 }
+
+.restart-button
+{
+  margin-left: 220px;
+  margin-top: 20px;
+  height: 50px;
+  border-radius: 150px;
+  text-align: center;
+  font-size: 25px;
+  width: 500px;
+}
+
 .answer:hover
 {
   background: orange;
   color: yellow;
   border-radius: 10px;
-  font-size: 30px:
+  font-size: 25px;
   
 }
 
@@ -48,7 +58,6 @@ body
     height: 900px;
     background-color: rgb(16, 218, 245);
     align-content: center;
-    
     
 }
 
@@ -125,10 +134,32 @@ p
   background: orange;
 }
 
-.timer
+.gameOver-p
 {
-  height: 80px;
+  height: 50px;
   font-size: 50px;
   color: red;
-  margin-bottom: 40px:
 }
+
+.results-p
+{
+  height: 50px;
+  font-size: 40px;
+  color: green;
+}
+
+.timer-p
+{
+  height: 50px;
+  font-size: 30px;
+  color: white;
+  
+}
+.timer
+{
+  height: 50px;
+  font-size: 50px;
+  color: red;
+  
+}
+

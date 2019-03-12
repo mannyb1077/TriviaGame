@@ -71,9 +71,7 @@ $(document).ready(function()
     
 
     $("#mainArea").on("click", ".start-button", function(event)
-    {
-    
-        
+    {  
         $('.jumbotron').hide(); 
         loadQuestions();
         timerWrapper();
@@ -99,13 +97,36 @@ $(document).ready(function()
     }); 
     
     $("body").on("click", ".restart-button", function(event)
-    {
-        
+    {   
         restartGame();
     }); 
     
     
 });  
+
+    function loadQuestions() 
+    {
+        
+        triviaHTML = 
+        "<p class='text-center timer-p'>Time Remaining: <span class='timer'>00:30</span></p><p class='text-center'>" + 
+        "<p class='text-center question-p'>" + questions[questionCounter] + "</p>" + 
+        "</p><p class='first-answer answer'>a. " + answers [questionCounter][0] + 
+        "</p><p class='answer'>b. " +
+        answers[questionCounter][1]+"</p><p class='answer'>c. " +
+        answers[questionCounter][2] +
+        "</p><p class='answer'>d. " 
+        +answers[questionCounter][3] 
+        "</p>";
+        //loadAnswers();
+        $("#mainArea").html(triviaHTML);
+        
+    }; 
+
+    // function loadAnswers()
+    // {
+    //     triviaHTML = "<p class='first-answer answer'>A. " + answers[questionCounter][0] + "</p><p class='answer'>B. "+answers[questionCounter][1]+"</p><p class='answer'>C. "+answers[questionCounter][2]+"</p><p class='answer'>D. "+answers[questionCounter][3]+"</p>";
+    //     // $("#mainArea").html(triviaHTML);
+    // }
     
     function loadWin() 
     {
@@ -134,8 +155,6 @@ $(document).ready(function()
         "<p class='text-center variable-p'>The correct answer is: " + correctAnswers[questionCounter] + "</p>" +
         "<img class='center-block img-wrong' src='/Users/MannyBarboza/Developer/uubc/sandbox/Homework/Homework5/TriviaGame/assets/images/wronganswer.gif'>";
 
-        
-
         $("#mainArea").html(triviaHTML);
         setTimeout(wait, 5000); 
     }
@@ -152,37 +171,13 @@ $(document).ready(function()
         setTimeout(wait, 5000); 
     }
     
-
-    function loadQuestions() 
-    {
-        
-        triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>00:30</span></p><p class='text-center'>" + 
-        "<p class='text-center question-p'>" + questions[questionCounter] + "</p>" + 
-        "</p><p class='first-answer answer'>a. " + answers [questionCounter][0] + 
-        "</p><p class='answer'>b. " +
-        answers[questionCounter][1]+"</p><p class='answer'>c. " +
-        answers[questionCounter][2] +
-        "</p><p class='answer'>d. " 
-        +answers[questionCounter][3] 
-        "</p>";
-        //loadAnswers();
-        $("#mainArea").html(triviaHTML);
-        
-    }; 
-
-    // function loadAnswers()
-    // {
-    //     triviaHTML = "</p><p class='first-answer answer'>A. " + answers[questionCounter][0] + "</p><p class='answer'>B. "+answers[questionCounter][1]+"</p><p class='answer'>C. "+answers[questionCounter][2]+"</p><p class='answer'>D. "+answers[questionCounter][3]+"</p>";
-    //     // $("#mainArea").html(triviaHTML);
-    // }
-    
     function wait() 
     {
         if (questionCounter < 9) 
         {
             questionCounter++
             loadQuestions();
-            counter = 30,
+            counter = 30;
             timerWrapper();
      
         }
@@ -196,9 +191,9 @@ $(document).ready(function()
     
     function timerWrapper() 
     {
-        timer = setInterval(thirtySeconds, 1000);
+        timer = setInterval(countDown, 1000);
 
-        function thirtySeconds() 
+        function countDown() 
         {
             if (counter === 0) 
             {
@@ -209,13 +204,24 @@ $(document).ready(function()
             {
                 counter--;
             }
-            $(".timer").html(counter);
+
+            time = "00:" + counter;
+            if (counter < 10)
+            {
+                time = "00:0" + counter;
+            }
+            $(".timer").html(time);
         }
     }
     
     function finalScreen() 
     {
-        triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Game Over! Results: " + "</p>" + "<p class='summary-correct'>Correct Answers: " + wins + "</p>" + "<p>Wrong Answers: " + losses + "</p>" + "<p>Not Answered: " + noResponse + "</p>" + 
+        triviaHTML = //"<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + 
+        "<p class='text-center gameOver-p'>Game Over!</p>" +
+        "<p class='text-center results-p'>Results:</p>" + 
+        "<p class='results'>Correct Answers: " + wins + "</p>" + 
+        "<p class='results'>Wrong Answers: " + losses + "</p>" + 
+        "<p class='results'>Not Answered: " + noResponse + "</p>" + 
         "<p class='text-center restart-button-container'><a class='btn btn-warning btn-md btn-block restart-button' href='#' role='button'>Restart Game!</a></p>";
 
         $("#mainArea").html(triviaHTML);
