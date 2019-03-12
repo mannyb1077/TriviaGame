@@ -24,6 +24,10 @@
 .answer:hover
 {
   background: orange;
+  color: yellow;
+  border-radius: 10px;
+  font-size: 30px:
+  
 }
 
 body 
@@ -78,49 +82,53 @@ footer
   text-align: center;
 }
 
-#button-question
+p
 {
-  width: 600px;
-  height: 40px;
-  text-align: center;
-  margin-bottom: 30px;
-  background-color: rgb(16, 218, 245);
-  font-size: 30px;
-  color:red;
-  
-
-}
-
-#button-start
-{
-  border: 15px;
   height: 50px;
-  width: 200px;
-  text-align: center;
-  color: green;
+  font-size: 16px;
+}
 
-}
-  
-.answers
+.variable-p
 {
-  width: 600px;
-  height: 40px;
-  margin-bottom: 0;
-  padding: 0;
-  border: none;
-  background-color: rgb(16, 218, 245);
-  color: yellow;
-  font-size: 15px;
-  
+  height: 50px;
+  font-size: 40px;
+  color: white;
 }
-#button-timer
+
+.correct-p
 {
-  width: 600px;
+  height: 50px;
+  font-size: 50px;
+  color: teal;
+}
+
+.wrong-p
+{
+  height: 50px;
+  font-size: 50px;
+  color: red;
+}
+
+.timeout-p
+{
+  height: 50px;
+  font-size: 30px;
+  color: white;
+}
+
+.question-p
+{
   height: 60px;
-  text-align: center;
-  margin-bottom: 10px;
-  background-color: rgb(16, 218, 245);
-  border: none;
-  font-size: 55px;
+  font-size: 20px;
+  border-radius: 50px;
+  color: white;
+  background: orange;
 }
 
+.timer
+{
+  height: 80px;
+  font-size: 50px;
+  color: red;
+  margin-bottom: 40px:
+}

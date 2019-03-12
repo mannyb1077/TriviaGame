@@ -22,7 +22,7 @@ var questions =
 
     "With its lyric, And no one heard at all/Not even the chair, What Neil Diamond hit reportedly inspired Clint Eastwood's infamous chair stunt at the 2012 RNC?",
 
-    "Hearing that Guiness World Records was going to nme him the World's most litigous person, Jonathan Lee Riches responded by what?",
+    "Hearing that Guiness World Records was going to name him the World's most litigous person, Jonathan Lee Riches responded by what?",
 
     "When Steve Jobs accused Bill Gates of ripping off Apple, Gates said they'd both stolen from what tech company that developed the mouse?" ];
 
@@ -106,20 +106,18 @@ $(document).ready(function()
     
     
 });  
-
-    function timeout() 
-    {
-        noResponse++;
-        triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>You ran out of time!  The correct answer was: " + correctAnswers[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='assets/images/timeout.gif'>";
-        $("#mainArea").html(triviaHTML);
-        setTimeout(wait, 5000); 
-    }
     
     function loadWin() 
     {
         wins++;
         
-        triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Correct! The answer is: " + correctAnswers[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='assets/images/correctanswer.gif'>";
+        triviaHTML = //"<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + 
+        "<p class='text-center correct-p'>Correct!" +
+        "<p class='text-center variable-p'>The answer is: " + correctAnswers[questionCounter] + "</p>" +
+        "<img class='center-block img-wrong' src='assets/images/correctanswer.gif'>";
+        
+
+        // triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Correct! The answer is: " + correctAnswers[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='assets/images/correctanswer.gif'>";
 
         $("#mainArea").html(triviaHTML);
         
@@ -131,9 +129,26 @@ $(document).ready(function()
 
     
         losses++;
-        triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Wrong! The correct answer is: "+ correctAnswers[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='/Users/MannyBarboza/Developer/uubc/sandbox/Homework/Homework5/TriviaGame/assets/images/wronganswer.gif'>";
-        $("#mainArea").html(triviaHTML);
+        triviaHTML = //"<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + 
+        "<p class='text-center wrong-p'>Wrong!" + 
+        "<p class='text-center variable-p'>The correct answer is: " + correctAnswers[questionCounter] + "</p>" +
+        "<img class='center-block img-wrong' src='/Users/MannyBarboza/Developer/uubc/sandbox/Homework/Homework5/TriviaGame/assets/images/wronganswer.gif'>";
+
         
+
+        $("#mainArea").html(triviaHTML);
+        setTimeout(wait, 5000); 
+    }
+
+    function timeout() 
+    {
+        noResponse++;
+        triviaHTML = //"<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + 
+        "<p class='text-center timeout-p'>You ran out of time!  The correct answer was: " + correctAnswers[questionCounter] + "</p>" + 
+        "<img class='center-block img-wrong' src='assets/images/timeout.gif'>";
+        
+
+        $("#mainArea").html(triviaHTML);
         setTimeout(wait, 5000); 
     }
     
@@ -141,7 +156,15 @@ $(document).ready(function()
     function loadQuestions() 
     {
         
-        triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>30</span></p><p class='text-center'>" + questions[questionCounter] + "</p><p class='first-answer answer'>a. " + answers [questionCounter][0] + "</p><p class='answer'>b. "+answers[questionCounter][1]+"</p><p class='answer'>c. "+answers[questionCounter][2]+"</p><p class='answer'>d. "+answers[questionCounter][3]+"</p>";
+        triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>00:30</span></p><p class='text-center'>" + 
+        "<p class='text-center question-p'>" + questions[questionCounter] + "</p>" + 
+        "</p><p class='first-answer answer'>a. " + answers [questionCounter][0] + 
+        "</p><p class='answer'>b. " +
+        answers[questionCounter][1]+"</p><p class='answer'>c. " +
+        answers[questionCounter][2] +
+        "</p><p class='answer'>d. " 
+        +answers[questionCounter][3] 
+        "</p>";
         //loadAnswers();
         $("#mainArea").html(triviaHTML);
         
@@ -155,7 +178,7 @@ $(document).ready(function()
     
     function wait() 
     {
-        if (questionCounter <= 9) 
+        if (questionCounter < 9) 
         {
             questionCounter++
             loadQuestions();
@@ -165,7 +188,6 @@ $(document).ready(function()
         }
         else
         {
-            alert("This is working");
             finalScreen();
         }
         console.log("questionCounter = " + questionCounter);
@@ -193,7 +215,8 @@ $(document).ready(function()
     
     function finalScreen() 
     {
-        triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Game Over! Results: " + "</p>" + "<p class='summary-correct'>Correct Answers: " + wins + "</p>" + "<p>Wrong Answers: " + losses + "</p>" + "<p>Not Answered: " + noResponse + "</p>" + "<p class='text-center restart-button-container'><a class='btn btn-warning btn-md btn-block restart-button' href='#' role='button'>Restart Game!</a></p>";
+        triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Game Over! Results: " + "</p>" + "<p class='summary-correct'>Correct Answers: " + wins + "</p>" + "<p>Wrong Answers: " + losses + "</p>" + "<p>Not Answered: " + noResponse + "</p>" + 
+        "<p class='text-center restart-button-container'><a class='btn btn-warning btn-md btn-block restart-button' href='#' role='button'>Restart Game!</a></p>";
 
         $("#mainArea").html(triviaHTML);
     }
