@@ -110,13 +110,11 @@ $(document).ready(function()
         triviaHTML = 
         "<p class='text-center timer-p'>Time Remaining: <span class='timer'>00:30</span></p><p class='text-center'>" + 
         "<p class='text-center question-p'>" + questions[questionCounter] + "</p>" + 
-        "</p><p class='first-answer answer'>a. " + answers [questionCounter][0] + 
-        "</p><p class='answer'>b. " +
-        answers[questionCounter][1]+"</p><p class='answer'>c. " +
-        answers[questionCounter][2] +
-        "</p><p class='answer'>d. " 
-        +answers[questionCounter][3] 
-        "</p>";
+
+        "</p><p class='answer'>a. " + answers [questionCounter][0] + 
+        "</p><p class='answer'>b. " + answers[questionCounter][1] +
+        "</p><p class='answer'>c. " + answers[questionCounter][2] +
+        "</p><p class='answer'>d. " + answers[questionCounter][3] + "</p>";
         //loadAnswers();
         $("#mainArea").html(triviaHTML);
         
@@ -136,10 +134,7 @@ $(document).ready(function()
         "<p class='text-center correct-p'>Correct!" +
         "<p class='text-center variable-p'>The answer is: " + correctAnswers[questionCounter] + "</p>" +
         "<img class='center-block img-wrong' src='assets/images/correctanswer.gif'>";
-        
-
-        // triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Correct! The answer is: " + correctAnswers[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='assets/images/correctanswer.gif'>";
-
+    
         $("#mainArea").html(triviaHTML);
         
         setTimeout(wait, 5000);  
@@ -147,8 +142,6 @@ $(document).ready(function()
     
     function loadLoss() 
     {
-
-    
         losses++;
         triviaHTML = //"<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + 
         "<p class='text-center wrong-p'>Wrong!" + 
@@ -156,6 +149,7 @@ $(document).ready(function()
         "<img class='center-block img-wrong' src='/Users/MannyBarboza/Developer/uubc/sandbox/Homework/Homework5/TriviaGame/assets/images/wronganswer.gif'>";
 
         $("#mainArea").html(triviaHTML);
+
         setTimeout(wait, 5000); 
     }
 
@@ -168,6 +162,7 @@ $(document).ready(function()
         
 
         $("#mainArea").html(triviaHTML);
+
         setTimeout(wait, 5000); 
     }
     
@@ -185,7 +180,7 @@ $(document).ready(function()
         {
             finalScreen();
         }
-        console.log("questionCounter = " + questionCounter);
+        //console.log("questionCounter = " + questionCounter);
 
     }; 
     
